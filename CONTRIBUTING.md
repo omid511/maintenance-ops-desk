@@ -18,3 +18,11 @@ npm run build
 Use a short imperative commit subject and document schema, auth, or deployment
 implications. Never commit `.env*`, database URLs, session secrets, tenant
 data, or copied branding/assets.
+
+## Workflow action policy
+
+GitHub Actions use maintained major tags such as `@v4` rather than floating
+branches or unpinned commits. This keeps routine upstream security fixes
+available while Dependabot tracks major-version updates for review. Changes to
+workflow permissions should stay least-privilege and be explained in the pull
+request.
