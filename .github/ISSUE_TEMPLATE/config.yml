@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the deployment boundary first
+    url: https://github.com/omid511/maintenance-ops-desk#production-persistence-and-auth
+    about: The default demo is in-memory; read the persistent-mode and authentication boundary before reporting production behavior.

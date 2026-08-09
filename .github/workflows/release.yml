@@ -1,0 +1,35 @@
+name: Release source archive
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    if: startsWith(github.event.release.tag_name, 'v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - name: Install and verify release
+        run: |
+          npm install
+          npm run typecheck
+          npm run check:env
+          npm run lint
+          npm test
+          npm run build
+      - name: Build source archive
+        run: |
+          mkdir -p dist
+          git archive --format=tar.gz --prefix="maintenance-ops-desk-${GITHUB_REF_NAME}/" \
+            --output="dist/maintenance-ops-desk-${GITHUB_REF_NAME}.tar.gz" "$GITHUB_REF_NAME"
+      - name: Attach archive to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" dist/*.tar.gz --repo "$GITHUB_REPOSITORY" --clobber

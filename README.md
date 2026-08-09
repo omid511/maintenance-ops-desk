@@ -1,5 +1,8 @@
 # Maintenance Desk
 
+[![CI](https://github.com/omid511/maintenance-ops-desk/actions/workflows/ci.yml/badge.svg)](https://github.com/omid511/maintenance-ops-desk/actions/workflows/ci.yml)
+[![Issues](https://img.shields.io/github/issues/omid511/maintenance-ops-desk)](https://github.com/omid511/maintenance-ops-desk/issues)
+
 Maintenance Desk is a small-landlord service queue: tenants report a problem, landlords make the next action visible, and both sides share an auditable timeline.
 
 ## Demo mode
