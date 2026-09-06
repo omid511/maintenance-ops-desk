@@ -32,6 +32,15 @@ npm run build
 npm run check:env
 ```
 
+## GitHub checks and releases
+
+Pull requests and pushes run the same type, environment, lint, test, and
+production-build checks listed above. Dependabot reviews dependency changes,
+and CodeQL scans the TypeScript surface on pull requests, pushes to `main`,
+and a weekly schedule. A published `v*` GitHub release re-runs verification
+and attaches a source archive plus a SHA-256 checksum; verify it with
+`sha256sum -c maintenance-ops-desk-<tag>.tar.gz.sha256`.
+
 ## Production persistence and auth
 
 The project is configured for Vercel (`vercel.json`) and uses standard Next.js build output. Connect this directory to a Vercel project, set the framework to Next.js, and deploy. No secrets are required for demo mode.

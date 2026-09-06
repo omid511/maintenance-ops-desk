@@ -26,3 +26,9 @@ branches or unpinned commits. This keeps routine upstream security fixes
 available while Dependabot tracks major-version updates for review. Changes to
 workflow permissions should stay least-privilege and be explained in the pull
 request.
+
+## Releases
+
+Publish a GitHub release from a `v*` tag. The release workflow re-runs the
+verification suite, builds a source archive, and uploads its SHA-256 checksum.
+Do not attach generated archives manually when the workflow can produce them.
